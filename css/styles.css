@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #000;
+    --secondaryBackground: #1a1a1a;
+    --text: #fff;
+    --purple: #828dff;
+    --teal: #24feee;
+    --completedTaskColor: #b3b3b3;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    max-width: 500px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.stats-container {
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid var(--purple);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.details {
+    width: 100%;
+    text-align: center;
+}
+
+#progressBar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--secondaryBackground);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#progress {
+    width: 0%; /* Width akan di-update dengan JavaScript */
+    height: 100%;
+    background-color: var(--teal);
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+#numbers {
+    width: 100px;
+    height: 100px;
+    background-color: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text);
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 16px;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--purple);
+    border-radius: 10px;
+    outline: none;
+    color: var(--teal);
+    font-size: 16px;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--purple);
+    color: var(--text);
+    font-size: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--teal);
+    transition: background-color 0.3s ease;
+}
+
+.task-list {
+    width: 100%;
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.taskItem {
+    background-color: var(--secondaryBackground);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task p {
+    margin: 0;
+    color: var(--text);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--completedTaskColor);
+}
+
+.icons img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+input:focus {
+    box-shadow: 0 0 5px var(--teal);
+}
+
+@media (max-width: 500px) {
+    #numbers {
+        width: 80px;
+        height: 80px;
+        font-size: 16px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    #numbers {
+        width: 80px;
+        height: 80px;
+        font-size: 18px;
+    }
+
+    input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    button {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .task-list {
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .taskItem {
+        flex-direction: column; /* Stack items on smaller screens */
+        align-items: flex-start; /* Align items to start */
+        padding: 10px;
+        border: 1px solid var(--purple);
+        border-radius: 10px;
+        background-color: var(--secondaryBackground);
+    }
+
+    .task {
+        display: flex;
+        align-items: center;
+        width: 100%; /* Make task take full width */
+        justify-content: space-between;
+    }
+
+    .icons {
+        margin-top: 5px; /* Add spacing for icons */
+        display: flex;
+        gap: 5px; /* Add spacing between icons */
+    }
+}
